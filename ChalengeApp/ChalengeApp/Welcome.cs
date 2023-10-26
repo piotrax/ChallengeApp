@@ -6,6 +6,13 @@ public class Welcome
 	public Welcome(string name)
 	{
 		this.word = "Witaj";
-		Console.WriteLine($"{this.word} {name}!");
+		if (name.Length == 0)
+		{
+			Console.WriteLine($"{this.word} NoName!");
+		}
+		else
+		{
+			Console.WriteLine($"{this.word} {name}!");
+		}
 	}
 }
