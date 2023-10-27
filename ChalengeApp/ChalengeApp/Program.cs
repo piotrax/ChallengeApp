@@ -4,25 +4,31 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, Misio!");
-        string tekst = "coś tam";
-        Console.WriteLine(tekst);
-        byte max = byte.MaxValue;
-        byte min = byte.MinValue;
-        Console.Write("Podaj liczbę od 0 do 255: ");
-        int liczba = int.Parse(Console.ReadLine());
-        if (liczba >= min && liczba <= max)
+        string name = "Ewa";
+        string sex = "kobieta";
+        int age = 33;
+
+        if (sex == "kobieta")
         {
-            Console.WriteLine($"Liczba {liczba} mieści się w zakresie jednego bajta");
+            if (age < 30)
+            {
+                Console.WriteLine($"kobieta  poniżej 30 lat");
+            }
+            else
+            {
+                Console.WriteLine($"{name} lat {age}");
+            }
         }
         else
         {
-            Console.WriteLine($"Liczba {liczba} nie mieści się w zakresie jednego bajta");
+            if (age < 18)
+            {
+                Console.WriteLine("Niepełnoletni Mężczyzna");
+            }
+            else
+            {
+                Console.WriteLine($"Mężczyzna lat {age}");
+            }
         }
-
-        Console.Write("Jak się nazywasz? ");
-        string name = Console.ReadLine();
-        Console.WriteLine($"Maksymalna wartość bajtu wynosi {max}, minimalna wynosi {min}.");
-        var witaj = new Welcome(name);
     }
 }
