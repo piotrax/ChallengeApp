@@ -2,17 +2,17 @@
 
 public class Welcome
 {
-	public string Word { get; set; }
-	public Welcome(string name)
+	private static int counter = 0;
+	private readonly string name = "";
+
+    public Welcome()
+    {
+        counter++;
+        Console.WriteLine($"Witaj NoName po raz {counter}!");
+    }
+    public Welcome(string name)
 	{
-		this.Word = "Witaj";
-		if (name.Length == 0)
-		{
-			Console.WriteLine($"{this.Word} NoName!");
-		}
-		else
-		{
-			Console.WriteLine($"{this.Word} {name}!");
-		}
+		counter++; ;
+		Console.WriteLine($"Witaj {name} po raz {counter}!");
 	}
 }
