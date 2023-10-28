@@ -4,31 +4,19 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        string name = "Ewa";
-        string sex = "kobieta";
-        int age = 33;
+        ulong number = 2718281828459045235;
+        string numberInString = number.ToString();
+        char[] letters = numberInString.ToCharArray();
+        int[] cipher = new int[10];
 
-        if (sex == "kobieta")
+        foreach (char letter in letters)
         {
-            if (age < 30)
-            {
-                Console.WriteLine($"kobieta  poniżej 30 lat");
-            }
-            else
-            {
-                Console.WriteLine($"{name} lat {age}");
-            }
+            cipher[(int)Char.GetNumericValue(letter)] += 1;
         }
-        else
+
+        for (int i = 0; i < cipher.Length; i++)
         {
-            if (age < 18)
-            {
-                Console.WriteLine("Niepełnoletni Mężczyzna");
-            }
-            else
-            {
-                Console.WriteLine($"Mężczyzna lat {age}");
-            }
+            Console.WriteLine($"{i} => {cipher[i]}");
         }
     }
 }
