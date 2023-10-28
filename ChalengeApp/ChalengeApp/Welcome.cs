@@ -2,17 +2,17 @@
 
 public class Welcome
 {
-	string word { get; set; }
+	public string Word { get; set; }
 	public Welcome(string name)
 	{
-		this.word = "Witaj";
+		this.Word = "Witaj";
 		if (name.Length == 0)
 		{
-			Console.WriteLine($"{this.word} NoName!");
+			Console.WriteLine($"{this.Word} NoName!");
 		}
 		else
 		{
-			Console.WriteLine($"{this.word} {name}!");
+			Console.WriteLine($"{this.Word} {name}!");
 		}
 	}
 }
