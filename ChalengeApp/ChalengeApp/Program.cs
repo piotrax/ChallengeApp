@@ -1,22 +1,38 @@
-﻿using Microsoft.Win32.SafeHandles;
+﻿using ChallengeApp;
 
-internal class Program
+class Program
 {
     private static void Main(string[] args)
-    {
-        ulong number = 9823573465913687340;
-        string numberInString = number.ToString();
-        char[] letters = numberInString.ToCharArray();
-        int[] cipher = new int[10];
+    {   
+        List<Employee> employees = new List<Employee>(); // pusta lista pracowników
+        employees.Add(new Employee("Adam", "Abacki", 33)); // imie, nazwisko, wiek
+        employees.Add(new Employee("Adam", "Abacki", 33));
+        employees.Add(new Employee("Beata", "Babacka", 44));
+        employees.Add(new Employee("Cezary", "Cabacki", 22));
+        employees.Add(new Employee("Dorota", "Dabacka", 55));
+        Random rand = new Random(); // utworzenie generatora liczb losowych
 
-        foreach (char letter in letters)
+        foreach (Employee employee in employees)
         {
-            cipher[int.Parse(letter.ToString())] += 1;
+            for (int i = 0; i < 5; i++)
+            {
+                employee.AddScore(rand.Next(1, 11)); // losowe oceny od 1 do 10
+            }
         }
 
-        for (int i = 0; i < cipher.Length; i++)
+        int maxScore = 0;
+        string maxName = "";
+        string maxSurname = "";
+        for(int i = 0;i < employees.Count; i++)
         {
-            Console.WriteLine($"{i} => {cipher[i]}");
+            if (maxScore < employees[i].Score.Sum())
+            {
+                maxScore = employees[i].Score.Sum();
+                maxName = employees[i].Name;
+                maxSurname = employees[i].Surname;
+            }
+
         }
+        Console.WriteLine($"Pracownik z najwyższą liczbą ocen ({maxScore}) to {maxName} {maxSurname}.");
     }
 }
