@@ -4,14 +4,14 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        ulong number = 2718281828459045235;
+        ulong number = 9823573465913687340;
         string numberInString = number.ToString();
         char[] letters = numberInString.ToCharArray();
         int[] cipher = new int[10];
 
         foreach (char letter in letters)
         {
-            cipher[(int)Char.GetNumericValue(letter)] += 1;
+            cipher[int.Parse(letter.ToString())] += 1;
         }
 
         for (int i = 0; i < cipher.Length; i++)
