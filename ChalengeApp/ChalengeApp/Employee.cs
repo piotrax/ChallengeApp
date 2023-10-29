@@ -10,7 +10,7 @@ namespace ChallengeApp
     {
         public string Name { get; set; }
         public string Surname { get; set; }
-        public int Age {get; set; }
+        public int Age { get; set; }
         public List<int> Score = new List<int>();
 
         public Employee(string name, string surname, int age)
@@ -23,5 +23,6 @@ namespace ChallengeApp
         {
             this.Score.Add(score);
         }
+        public int GetScore() { return this.Score.Sum(); }
     }
 }
