@@ -8,13 +8,17 @@ namespace ChallengeApp
 {
     public class User
     {
-        public string Name { get; set; }
+        public string Login { get; set; }
         public string Password { get; set; }
         public List<int> Score = new List<int>();
 
+        public User(string name)
+        {
+            this.Login = name;
+        }
         public User(string name, string password)
         {
-            this.Name = name;
+            this.Login = name;
             this.Password = password;
         }
         public void AddScore(int score)
