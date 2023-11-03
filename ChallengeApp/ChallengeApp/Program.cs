@@ -13,6 +13,9 @@ class Program
 
 
         var statistics = employee1.GetStatistics();
+        var statistics2 = employee1.GetStatisticsWithForEach();
+        var statistics3 = employee1.GetStatisticsWithDoWhile();
+        var statistics4 = employee1.GetStatisticsWithWhile();
         Console.WriteLine($"Min: {statistics.Min:N0}");
         Console.WriteLine($"Max: {statistics.Max:N0}");
         Console.WriteLine($"Avg: {statistics.Average:N2}");
