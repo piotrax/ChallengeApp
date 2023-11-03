@@ -6,10 +6,10 @@ class Program
     {
         var employee1 = new Employee("Peter", "Parker");
         employee1.AddGrade(0xa);
-        employee1.AddGrade(-0b11);
-        employee1.AddGrade(-0xc);
-        employee1.AddGrade(1/1);
-        employee1.AddGrade(11*2);
+        employee1.AddGrade("14");
+        employee1.AddGrade((byte)2);
+        employee1.AddGrade(1/2);
+        employee1.AddGrade(3*2);
 
 
         var statistics = employee1.GetStatistics();
