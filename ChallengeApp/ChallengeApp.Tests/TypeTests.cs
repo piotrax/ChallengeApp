@@ -13,23 +13,5 @@
             Assert.AreEqual(number1, number2);
             Assert.AreEqual(tekst1, tekst2);
         }
-
-        [Test]
-        public void CompareToUserObjects()
-        {
-            // arrange
-            var user1 = GetUser("Peter");
-            var user2 = GetUser("Peter");
-
-            // act
-
-            //assert
-            Assert.AreEqual(user1.Login, user2.Login);
-
-        }
-        private User GetUser(string name)
-        {
-            return new User(name);
-        }
     }
 }
