@@ -8,7 +8,7 @@ class Program
         employee1.AddGrade(0xa);
         employee1.AddGrade(-0b11);
         employee1.AddGrade(-0xc);
-        employee1.AddGrade(1/0);
+        employee1.AddGrade(1/1);
         employee1.AddGrade(11*2);
 
 
