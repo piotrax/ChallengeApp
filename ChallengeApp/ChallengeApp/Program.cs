@@ -1,4 +1,5 @@
 ﻿using ChallengeApp;
+using System.Net;
 
 class Program
 {
@@ -23,5 +24,6 @@ class Program
         Console.WriteLine($"Max: {statistics.Max:N2}");
         Console.WriteLine($"Avg: {statistics.Average:N2}");
         Console.WriteLine($"Average letter: {statistics.AverageLetter}");
+        foreach(var item in employee.grades) Console.Write(item + ", ");
     }
 }
