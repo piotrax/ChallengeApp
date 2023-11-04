@@ -32,7 +32,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("Invalid grade data!");
+                throw new Exception("Invalid grade data!");
             }
         }
 
@@ -70,7 +70,7 @@ namespace ChallengeApp
 
             catch(Exception e)
             {
-                Console.WriteLine($"Input error! {e.Message}");
+                throw new Exception($"Input error! {e.Message}");
             }
 
 }

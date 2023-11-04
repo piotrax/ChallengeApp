@@ -16,7 +16,14 @@ class Program
             Console.Write("Podaj kolejną ocenę pracownika: ");
             var input = Console.ReadLine();
             if (input == "q" && employee.grades.Count > 0) break;
-            employee.AddGrade(input);
+            try
+            {
+                employee.AddGrade(input);
+            }
+            catch (Exception ex) 
+            { 
+                Console.WriteLine($"Exception: {ex.Message}"); 
+            }
         } while (true);
 
         var statistics = employee.GetStatistics();
@@ -24,6 +31,6 @@ class Program
         Console.WriteLine($"Max: {statistics.Max:N2}");
         Console.WriteLine($"Avg: {statistics.Average:N2}");
         Console.WriteLine($"Average letter: {statistics.AverageLetter}");
-        foreach(var item in employee.grades) Console.Write(item + ", ");
+        foreach(var item in employee.grades) Console.Write(item + " ");
     }
 }
