@@ -14,13 +14,17 @@ namespace ChallengeApp
         public int Age { get; set; }
         public List<float> grades = new List<float>();
 
+        public Employee()
+        {
+             
+        }
         public Employee(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
         }
 
-        public void AddFloatGrade(float grade)
+        public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -34,30 +38,42 @@ namespace ChallengeApp
 
         public void AddGrade(string grade)
         {
-            try
-            {
-                var values = new Dictionary<string, float>()
+            try 
+            { 
+                switch (grade)
                 {
-                    { "A", 100 }, { "a", 100 }, { "B", 80 }, { "b", 80 },
-                    { "C", 60 }, { "c", 60 }, { "D", 40 }, { "d", 40 },
-                    { "E", 20 }, { "e", 20 }
-                };
+                    case "A":
+                    case "a":
+                        this.grades.Add(100);
+                        break;
+                    case "B":
+                    case "b":
+                        this.grades.Add(80);
+                        break;
+                    case "C":
+                    case "c":
+                        this.grades.Add(60);
+                        break;
+                    case "D":
+                    case "d":
+                        this.grades.Add(40);
+                        break;
+                    case "E":
+                    case "e":
+                        this.grades.Add(20);
+                        break;
+                    default:
+                        this.AddGrade(float.Parse(grade));
+                        break;
+                }
+            }
 
-                if (values.ContainsKey(grade))
-                {
-                    this.grades.Add(values[grade]);
-                }
-                else
-                {
-                    this.AddFloatGrade(float.Parse(grade));
-                }
-            }
-            catch
+            catch(Exception e)
             {
-                Console.WriteLine("Input error!");
+                Console.WriteLine($"Input error! {e.Message}");
             }
-            
-        }
+
+}
 
         public Statistics GetStatistics()
         {

@@ -8,7 +8,7 @@ class Program
         Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
         Console.WriteLine();
 
-        var employee = new Employee("Peter", "Parker");
+        var employee = new Employee();
 
         do
         {
