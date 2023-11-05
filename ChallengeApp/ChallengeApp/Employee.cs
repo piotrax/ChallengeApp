@@ -7,21 +7,22 @@ using System.Threading.Tasks;
 
 namespace ChallengeApp
 {
-    public class Employee
+    public class Employee : Person
     {
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
         public int Age { get; set; }
         public List<float> grades = new List<float>();
 
-        public Employee()
+        public Employee() : base()
         {
-             
+            this.Name = string.Empty;
+            this.Surname = string.Empty;
+            this.Gender = string.Empty;
         }
-        public Employee(string name, string surname)
+        public Employee(string name, string surname, string gender) : base(name, surname, gender)
         {
             this.Name = name;
             this.Surname = surname;
+            this.Gender = gender;
         }
 
         public void AddGrade(float grade)
