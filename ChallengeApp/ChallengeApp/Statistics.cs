@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChallengeApp
 {
-    public class Statistics
+    public abstract class Statistics
     {
         public float Min { get; set; }
         public float Max { get; set; }
