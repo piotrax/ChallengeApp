@@ -76,33 +76,19 @@ namespace ChallengeApp
 
         }
 
-        public bool TestList()
-        {
-            var amount = this.grades.Count;
-            if (amount > 0)
-            {
-                return true;
-            }
-            return false;
-
-
-        }
-
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
-
-            foreach(var grade in this.grades)
+            foreach (var grade in this.grades)
             {
                 statistics.Max = Math.Max(statistics.Max, grade);
                 statistics.Min = Math.Min(statistics.Min, grade);
                 statistics.Average += grade;
             }
             statistics.Average /= this.grades.Count;
-
 
             switch (statistics.Average)
             {
@@ -123,7 +109,15 @@ namespace ChallengeApp
                     break;
             }
 
-            return statistics;
+            if (this.grades.Count > 0) return statistics;
+            else 
+            {
+                statistics.Average = 0;
+                statistics.Max = 0;
+                statistics.Min = 0;
+                statistics.AverageLetter = '0';
+                return statistics;
+            };
         }
 
     }
