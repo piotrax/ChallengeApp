@@ -74,7 +74,19 @@ namespace ChallengeApp
                 throw new Exception($"Input error! {e.Message}");
             }
 
-}
+        }
+
+        public bool TestList()
+        {
+            var amount = this.grades.Count;
+            if (amount > 0)
+            {
+                return true;
+            }
+            return false;
+
+
+        }
 
         public Statistics GetStatistics()
         {
