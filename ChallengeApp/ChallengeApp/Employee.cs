@@ -7,18 +7,14 @@ using System.Threading.Tasks;
 
 namespace ChallengeApp
 {
-    public class Employee : Person
+    public class Employee : IEmployee
     {
-        public int Age { get; set; }
         public List<float> grades = new List<float>();
-
-        public Employee() : base()
-        {
-            this.Name = string.Empty;
-            this.Surname = string.Empty;
-            this.Gender = string.Empty;
-        }
-        public Employee(string name, string surname, string gender) : base(name, surname, gender)
+        public int Age { get; private set; }
+        public string Name { get; private set; }
+        public string Surname { get; private set; }
+        public string Gender { get; private set; }
+        public Employee(string name, string surname, string gender)
         {
             this.Name = name;
             this.Surname = surname;
@@ -37,31 +33,91 @@ namespace ChallengeApp
             }
         }
 
+        public void AddGrade(double grade)
+        {
+            if (grade >= 0 && grade <= 100)
+            {
+                this.grades.Add((float)grade);
+            }
+            else
+            {
+                throw new Exception("Invalid grade data!");
+            }
+        }
+
+        public void AddGrade(int grade)
+        {
+            if (grade >= 0 && grade <= 100)
+            {
+                this.grades.Add(grade);
+            }
+            else
+            {
+                throw new Exception("Invalid grade data!");
+            }
+        }
+
+        public void AddGrade(char grade)
+        {
+            try
+            {
+                switch (grade)
+                {
+                    case 'A':
+                    case 'a':
+                        this.AddGrade(100);
+                        break;
+                    case 'B':
+                    case 'b':
+                        this.AddGrade(80);
+                        break;
+                    case 'C':
+                    case 'c':
+                        this.AddGrade(60);
+                        break;
+                    case 'D':
+                    case 'd':
+                        this.AddGrade(40);
+                        break;
+                    case 'E':
+                    case 'e':
+                        this.AddGrade(20);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Input error! {e.Message}");
+            }
+        }
+
         public void AddGrade(string grade)
         {
-            try 
-            { 
+            try
+            {
                 switch (grade)
                 {
                     case "A":
                     case "a":
-                        this.AddGrade(float.Parse("100"));
+                        this.AddGrade(100);
                         break;
                     case "B":
                     case "b":
-                        this.AddGrade(float.Parse("80"));
+                        this.AddGrade(80);
                         break;
                     case "C":
                     case "c":
-                        this.AddGrade(float.Parse("60"));
+                        this.AddGrade(60);
                         break;
                     case "D":
                     case "d":
-                        this.AddGrade(float.Parse("40"));
+                        this.AddGrade(40);
                         break;
                     case "E":
                     case "e":
-                        this.AddGrade(float.Parse("20"));
+                        this.AddGrade(20);
                         break;
                     default:
                         this.AddGrade(float.Parse(grade));
@@ -69,7 +125,7 @@ namespace ChallengeApp
                 }
             }
 
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw new Exception($"Input error! {e.Message}");
             }

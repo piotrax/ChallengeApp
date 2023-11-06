@@ -10,6 +10,7 @@ class Program
         Console.WriteLine();
 
         var employee = new Employee("Master", "Of Disaster", "M");
+        var supervisor = new Supervisor("Anna", "Jantar", "W");
 
         while (true)
         {
@@ -18,19 +19,22 @@ class Program
             if (input == "q") break;
             try
             {
-                employee.AddGrade(input);
+                //employee.AddGrade(input);
+                supervisor.AddGrade(input);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Exception: {ex.Message}");
             }
         }
-        var statistics = employee.GetStatistics();
+        //var statistics = employee.GetStatistics();
+        var statistics = supervisor.GetStatistics();
         Console.WriteLine($"Min: {statistics.Min:N2}");
         Console.WriteLine($"Max: {statistics.Max:N2}");
         Console.WriteLine($"Avg: {statistics.Average:N2}");
         Console.WriteLine($"Average letter: {statistics.AverageLetter}");
-        foreach (var item in employee.grades) Console.Write(item + " ");
+        //foreach (var item in employee.grades) Console.Write(item + " ");
+        foreach (var item in supervisor.grades) Console.Write(item + " ");
 
     }
 }
