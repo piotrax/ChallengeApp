@@ -24,7 +24,10 @@ class Program
             employee.AddGrade(66f);
             employee.AddGrade(33.33f);
 
-            employee.GetStatistics();
+            var statistics = employee.GetStatistics();
+            Console.WriteLine($"\nMin: {statistics.Min:N2}");
+            Console.WriteLine($"Max: {statistics.Max:N2}");
+            Console.WriteLine($"Avg: {statistics.Average:N2}");
         }
         catch (Exception ex)
         {

@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
     public abstract class EmployeeBase : IEmployee
     {
         public int Age => throw new NotImplementedException();
 
-        public string Name {  get; private set; }
+        public string Name {  get; set; }
 
-        public string Surname { get; private set; }
+        public string Surname { get; set; }
 
         public string Gender => throw new NotImplementedException();
 
