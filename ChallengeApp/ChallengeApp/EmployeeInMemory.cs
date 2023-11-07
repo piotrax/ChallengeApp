@@ -1,27 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Intrinsics.X86;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
-    public class Employee : IEmployee
+    public class EmployeeInMemory : EmployeeBase
     {
         public List<float> grades = new List<float>();
         public int Age { get; private set; }
         public string Name { get; private set; }
         public string Surname { get; private set; }
         public string Gender { get; private set; }
-        public Employee(string name, string surname, string gender)
+
+        public EmployeeInMemory(string name, string surname) 
+            : base(name, surname)
         {
-            this.Name = name;
-            this.Surname = surname;
-            this.Gender = gender;
         }
 
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -33,7 +25,7 @@ namespace ChallengeApp
             }
         }
 
-        public void AddGrade(double grade)
+        public override void AddGrade(double grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -45,7 +37,7 @@ namespace ChallengeApp
             }
         }
 
-        public void AddGrade(int grade)
+        public override void AddGrade(int grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -57,7 +49,7 @@ namespace ChallengeApp
             }
         }
 
-        public void AddGrade(char grade)
+        public override void AddGrade(char grade)
         {
             Dictionary<char, int> mapGrades = new Dictionary<char, int>()
             {
@@ -76,19 +68,17 @@ namespace ChallengeApp
             }
         }
 
-        public void AddGrade(string grade)
+        public override void AddGrade(string grade)
         {
             Dictionary<string, int> mapGrades = new Dictionary<string, int>()
             {
                 {"A", 100}, {"B", 80}, {"C", 60}, {"D", 40}, {"E", 20}, {"F", 0},
                 {"a", 100}, {"b", 80}, {"c", 60}, {"d", 40}, {"e", 20}, {"f", 0}
             };
-
             try
             {
                 grades.Add(mapGrades[grade]);
             }
-
             catch
             {
                 try
@@ -102,7 +92,7 @@ namespace ChallengeApp
             }
         }
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
@@ -136,7 +126,7 @@ namespace ChallengeApp
             }
 
             if (this.grades.Count > 0) return statistics;
-            else 
+            else
             {
                 statistics.Average = 0;
                 statistics.Max = 0;
@@ -145,6 +135,5 @@ namespace ChallengeApp
                 return statistics;
             };
         }
-
     }
 }
