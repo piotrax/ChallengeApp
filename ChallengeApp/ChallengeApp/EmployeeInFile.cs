@@ -3,17 +3,22 @@
     public class EmployeeInFile : EmployeeBase
     {
         private const string fileName = "grades.txt";
+        public override event GradeAddedDelegate GradeAdded;
         public EmployeeInFile(string name, string surname) 
             : base(name, surname)
         {
+            GradeAddedDelegate delegat = GradeAdded;
         }
-
         public override void AddGrade(float grade)
         {
             using (var writer = File.AppendText(fileName))
             {
                 if (grade >= 0 && grade <= 100)
                     writer.WriteLine(grade);
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
                 else 
                     throw new Exception("Invalid grade data!");
             }
@@ -25,6 +30,10 @@
             {
                 if (grade >= 0 && grade <= 100)
                     writer.WriteLine((float)grade);
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
                 else
                     throw new Exception("Invalid grade data!");
             }
@@ -36,6 +45,10 @@
             {
                 if (grade >= 0 && grade <= 100)
                     writer.WriteLine((float)grade);
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
                 else
                     throw new Exception("Invalid grade data!");
             }
@@ -53,6 +66,10 @@
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(mapGrades[grade]);
+                    if (GradeAdded != null)
+                    {
+                        GradeAdded(this, new EventArgs());
+                    }
                 }
             }
             catch(Exception ex)
@@ -73,6 +90,10 @@
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(mapGrades[grade]);
+                    if (GradeAdded != null)
+                    {
+                        GradeAdded(this, new EventArgs());
+                    }
                 }
             }
             catch (Exception ex)

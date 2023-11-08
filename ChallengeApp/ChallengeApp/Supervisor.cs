@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography.X509Certificates;
+using static ChallengeApp.EmployeeBase;
 
 namespace ChallengeApp
 {
