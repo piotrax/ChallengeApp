@@ -7,14 +7,14 @@
         public string Name { get; private set; }
         public string Surname { get; private set; }
         public string Gender { get; private set; }
+
         public override event GradeAddedDelegate GradeAdded;
         public EmployeeInMemory(string name, string surname) 
             : base(name, surname)
         {
-            GradeAddedDelegate delegat = GradeAdded;
         }
 
-        public void EmployeeGradeAdded(object sender, EventArgs args)
+        public override void EmployeeGradeAdded(object sender, EventArgs args)
         {
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Dodano nową ocenę");

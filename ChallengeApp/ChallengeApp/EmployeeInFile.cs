@@ -7,7 +7,12 @@
         public EmployeeInFile(string name, string surname) 
             : base(name, surname)
         {
-            GradeAddedDelegate delegat = GradeAdded;
+        }
+        public override void EmployeeGradeAdded(object sender, EventArgs args)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Dodano nową ocenę");
+            Console.ForegroundColor = ConsoleColor.White;
         }
         public override void AddGrade(float grade)
         {

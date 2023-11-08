@@ -14,6 +14,7 @@
         public abstract Statistics GetStatistics();
         public delegate void GradeAddedDelegate(object sender, EventArgs args);
         public abstract event GradeAddedDelegate GradeAdded;
+        public abstract void EmployeeGradeAdded(object sender, EventArgs args);
         public EmployeeBase(string name, string surname) 
         {
             this.Name = name;
