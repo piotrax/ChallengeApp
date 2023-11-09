@@ -61,45 +61,11 @@ namespace ChallengeApp
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            foreach (var grade in this.grades)
+            foreach (var grade in grades)
             {
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Average += grade;
+                statistics.AddGrade(grade);
             }
-            statistics.Average /= this.grades.Count;
-
-            switch (statistics.Average)
-            {
-                case var average when average >= 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
-            }
-
-            if (this.grades.Count > 0) return statistics;
-            else
-            {
-                statistics.Average = 0;
-                statistics.Max = 0;
-                statistics.Min = 0;
-                statistics.AverageLetter = '0';
-                return statistics;
-            };
+            return statistics;
         }
     }
 }

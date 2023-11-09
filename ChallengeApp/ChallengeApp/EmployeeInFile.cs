@@ -1,4 +1,6 @@
-﻿namespace ChallengeApp
+﻿using System.Diagnostics;
+
+namespace ChallengeApp
 {
     public class EmployeeInFile : EmployeeBase
     {
@@ -121,13 +123,12 @@
                         Console.Write($"{line} ");
                         var number = float.Parse(line);
                         grades.Add(number);
+                        statistics.AddGrade(number);
                         line = reader.ReadLine();
                     }
+                    Console.WriteLine();
                 }
             }
-            statistics.Min = grades.Min();
-            statistics.Max = grades.Max();
-            statistics.Average = grades.Average();
             return statistics;
         }
     }
