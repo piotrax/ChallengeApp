@@ -14,7 +14,7 @@ class Program
         {
             Console.Write("Podaj kolejną ocenę pracownika: ");
             var input = Console.ReadLine();
-            if (input == "q") break;
+            if (input.ToLower() == "q") break;
             try
             {
                 employee.AddGrade(input);

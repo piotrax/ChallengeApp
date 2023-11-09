@@ -2,10 +2,10 @@
 {
     public abstract class EmployeeBase : IEmployee
     {
-        public int Age => throw new NotImplementedException();
+        public int Age { get; set; }
         public string Name {  get; set; }
         public string Surname { get; set; }
-        public string Gender => throw new NotImplementedException();
+        public string Gender {  get; set; }
         public abstract void AddGrade(float grade);
         public abstract void AddGrade(double grade);
         public abstract void AddGrade(int grade);
